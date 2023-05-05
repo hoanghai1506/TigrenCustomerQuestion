@@ -1,0 +1,55 @@
+
+.custom-btn-2 {
+    color: #fff;
+    width: 130px;
+    height: 40px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    margin: 15px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+/* 5 */
+.btn-5 {
+    background: #080e0e;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+
+}
+.btn-5:hover{
+    background: transparent;
+    color: #21ebff;
+}
+.btn-5:before,
+.btn-5:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    background: #21ebff;
+    width:0;
+    box-shadow:  0 0 5px #21ebff,  0 0 5px #21ebff inset;
+    transition:400ms ease all;
+}
+.btn-5:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
+/*------------------------------------------------------------------------------------------------------------------*/
+
+
+
+

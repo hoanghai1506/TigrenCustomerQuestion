@@ -1,0 +1,57 @@
+scalar DateTime
+type Query {
+    testcustomer( email: String @doc(description: "email of the customer")): Testcustomer @resolver(class:"Tigren\\CustomGraphQl\\Model\\Resolver\\Customer") @doc(description:"The testcustomer query returns information about a customer") @cache(cacheable: false)
+}
+type Testcustomer @doc(description: "Testcustomer defines the customer name and other details") {
+    entity_id: Int
+    firstname: String
+    lastname: String
+    email: String
+    created_in: String
+    created_at: String
+}
+type Query {
+    customerquestion: [Customerquestion] @resolver(class:"Tigren\\CustomGraphQl\\Model\\Resolver\\Question") @doc(description:"The customerquestion query returns information about a customer") @cache(cacheable: false)
+}
+type Customerquestion @doc(description: "Customerquestion defines the customer name and other details") {
+    id: Int
+    customer_name: String
+    title: String
+    content: String
+    created_at: String
+    update_at: String
+}
+
+
+type Mutation {
+    customerquestioncustom(    customer_name: String @doc(description: "name of the customer"),
+                               title: String @doc(description: "title of the customer"),
+                               content: String @doc(description: "question of the customer"),
+                               create_at: String @doc(description: "create_at of the customer"),
+                               update_at: String @doc(description: "update_at of the customer")): Question @resolver(class:"Tigren\\CustomGraphQl\\Model\\Resolver\\CreateQuestion") @doc(description:"The customerquestion mutation creates a new question") @cache(cacheable: false)
+
+    customerquestionupdate(id: Int @doc(description: "id of the customer"),
+                               customer_name: String @doc(description: "name of the customer"),
+                               title: String @doc(description: "title of the customer"),
+                               content: String @doc(description: "question of the customer"),
+                               update_at: String @doc(description: "update_at of the customer")): UpdateQuestion @resolver(class:"Tigren\\CustomGraphQl\\Model\\Resolver\\UpdateQuestion") @doc(description:"The customerquestion mutation update a question") @cache(cacheable: false)
+}
+type Question @doc(description: "Question defines the customer name and other details") {
+    id: Int
+    customer_name: String
+    title: String
+    content: String
+    create_at: String
+    update_at: String
+}
+
+
+type UpdateQuestion @doc(description: "UpdateQuestion defines the customer name and other details") {
+    id: Int
+    customer_name: String
+    title: String
+    content: String
+    update_at: String
+}
+
+
